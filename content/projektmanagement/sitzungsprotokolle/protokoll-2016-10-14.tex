@@ -1,0 +1,45 @@
+\documentclass[class=scrbook,crop=false]{standalone}
+
+\input{./preamble}
+
+\begin{document}
+
+	\section{Projektsitzung 14. Oktober 2016}
+
+	\begin{tabular}{ll}
+		\textbf{Datum} & 14.10.2016 \\
+		\textbf{Zeit} & 9:00\textendash10:00 Uhr \\
+		\textbf{Ort} & Compass Security, Werkstrasse 20, 8645 Jona SG \\
+		\textbf{Anwesende} & \ibuf \\ & \fbif \\ & \sadf
+	\end{tabular}
+
+	\subsection*{Traktanden}
+	\begin{itemize}
+		\item Präventive oder nachträgliche Abwehr von Trojaner -> siehe Beschlüsse
+		\item Iptables Prototyp (Erste Vorschau auf Möglichkeiten)
+		\item Logik beim Proxy, integrierbarkeit mit bestehenden Proxies?
+		\item Squid Proxy (weitverbreiteter Open Source Proxy -> besser auf bestehende Proxies setzen als selbst einen programmieren)
+	\end{itemize}
+
+	\subsection*{Was wurde erreicht}
+	\begin{itemize}
+		\item FiddlerCore Prototyp
+		\item Analyse zu Möglichkeiten
+	\end{itemize}
+
+	\subsection*{Beschlüsse}
+	\begin{itemize}
+		\item Nachträgliche Abwehr des Trojaners
+		\item Die Software wird Fish Agent genannt
+		\item Termin 21.10.16 9:00 - 10:00
+		\item Termin 03.11.16 9:00 - 10:00
+	\end{itemize}
+
+	\subsubsection*{Weiteres Vorgehen}
+	\begin{itemize}
+		\item Prototyp V2 erstellen
+		\item Proxy mit ElasticSearch (filebeat, topbeat, packetbeat)
+		\item Redirect mit Iptables
+	\end{itemize}
+
+\end{document}

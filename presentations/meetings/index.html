@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>C&C Sitzungspräsentationen</title>
+
+		<meta name="description" content="Sitzungspräsentationen">
+		<meta name="author" content="Silvan Adrian, Fabian Binna">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/white.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+				<section>
+					<h1>Sitzungen</h1>
+					<p>
+						Silvan Adrian<br/>
+						Fabian Binna
+					</p>
+				</section>
+
+				<!-- Example of nested vertical slides -->
+				<section>
+					<section>
+						<h2>Sitzung 14.Oktober</h2>
+						<ul>
+							<li>What we have done</li>
+							<li>Prototype</li>
+							<li>Lessons Learned</li>
+							<li>What we are going to do next</li>
+						</ul>
+					</section>
+					<section>
+						<h2>What we have done</h2>
+						<ul>
+							<li>2 HTTP Proxies ausgetestet</li>
+							<ul>
+								<li>Mitmproxy (Python)</li>
+								<li>FiddlerCore (.NET Library)</li>
+							</ul>
+							<li>Beides Programmierlibaries</li>
+							<li>Prototyp mit FiddlerCore</li>
+							<li>Beispiel Redirect mit iptables/scapy (DNS)</li>
+						</ul>
+					</section>
+					<section>
+							<h2>Prototype</h2>
+							<ul>
+								<li>FiddlerCore</li>
+								<li>Einfacher Client der Random HTTP und HTTPS Request sendet</li>
+								<li>Anhand von Header bei Request wird Redirected (Trojan Header)</li>
+								<li>Proxy der auf Header Testet und je nach Header weiter an "Fake C&C" leitet</li>
+								<ul>
+									<li>Dieser sendet einen Response zurück mit StatusCode 200-OK</li>
+								</ul>
+							</ul>
+					</section>
+					<section>
+						<h2>Lessons Learned</h2>
+						<ul>
+							<li>Präventiv Massnahme nicht so einfach umsetzbar</li>
+							<li>Proxy sollte wenn möglich keine eigene Logik haben -> sprich Standard Proxies können verwendet werden</li>
+							<li>Eigenen Proxy schreiben lohnt sich nicht wirklich</li>
+						</ul>
+					</section>
+					<section>
+						<h2>What we are going to do next</h2>
+							<ul>
+								<li>Squid Proxy mit Elasticsearch</li>
+								<li>IPTables Prototyp erweitern</li>
+								<li>Lösung für dynamische IPTables suchen</li>
+							</ul>
+					</section>
+				</section>
+				<!-- Sitzung 21. Oktober -->
+				<section>
+					<section>
+						<h2>Sitzung 21.Oktober</h2>
+						<ul>
+							<li>What we have done</li>
+							<li>Prototyp V2</li>
+							<li>Lessons Learned</li>
+							<li>What we are going to do next</li>
+						</ul>
+					</section>
+					<section>
+						<h2>What we have done</h2>
+						<ul>
+							<li>Pufferfish Logger Prototyp</li>
+							<ul>
+								<li>NodeJS ICAP Server -> über Squid ICAP verbunden (SSL Bump)</li>
+								<li>RREQMOD -> Requests "Cleartext"</li>
+								<li>Requests über TCP weiter an Logstash senden (als JSON -> inkl. X-Client-IP bzw.: ICAP Headers)</li>
+								<li>Logstash fügt Index und ID hinzu (nocht nicht final) und speichert die Einträge in Elasticsearch</li>
+							</ul>
+							<li>Mandarinfish Router Prototyp</li>
+							<ul>
+								<li>Node/Express REST API</li>
+								<li>POST: {original: [CC IP], redirect: [fakeCC IP]</li>
+								<li>Security problems: command injection, SSL, insecure temporary file</li>
+							</ul>
+						</ul>
+					</section>
+					<section>
+						<h2>Deployment Diagram Prototyp V2</h2>
+						<img src="img/PrototypV2/Deployment_Prototyp_V2.png"></img>
+					</section>
+					<section>
+						<h2>Lessons Learned</h2>
+						<ul>
+							<li>Use SSL Bump with Squid Proxy to Split SSL</li>
+							<li>Use ICAP to send all Request decrypted to an ICAP Server</li>
+							<li>How to store packets decrypted (SSL)</li>
+							<li>How to redirect specific IPs (Gateway + iptables)</li>
+						</ul>
+					</section>
+					<section>
+						<h2>What we are going to do next</h2>
+						<ul>
+							<li>Prototyp V2</li>
+							<li>Testenvironment (important!)</li>
+							<li>Triggerfish Agent Prototyp</li>
+							<li>Put together everything</li>
+						</ul>
+					</section>
+				</section>
+				<!-- Sitzung 21. Oktober -->
+				
+				<!-- Sitzung 21. November -->
+				<section>
+					<section>
+						<h2>Sitzung 21.November</h2>
+						<ul>
+							<li>What we have done</li>
+							<li>Fish Tank Suite</li>
+							<li>Lessons Learned</li>
+							<li>What we are going to do next</li>
+							<li>Problems</li>
+						</ul>
+					</section>
+					<section>
+						<h2>What we have done</h2>
+						<ul>
+							<li>Pufferfish Logger</li>
+							<ul>
+								<li>Threading und Decryption von XOR</li>
+								<li>Speichern von entschlüsseltem Payload in Elasticsearch</li>
+								<li>Nur noch loggen von Request mit Body</li>
+							</ul>
+							<li>Triggerfish Agent</li>
+							<ul>
+								<li>Threading und Campaign als JSON</li>
+							</ul>
+							<li>Fake C&C</li>
+							<ul>
+								<li>Sendet einfach Requests weiter vom Client</li>
+								<li>Für Repsonse von Registrierung wird Response gesendet für alle anderen Hellos nicht (payload=null)</li>
+							</ul>
+						</ul>
+					</section>
+					<section>
+						<h2>Campaign JSON</h2>
+						{
+						  "name": "C1",<br>
+						  "fakeccip": "192.168.200.125", <br>
+						  "keywords": [ <br>
+						    "IOGc2controller", <br>
+						    "c2networkstreamer", <br>
+						    "c2buffertrigger" <br>
+						  ]
+						}
+						</code></pre>
+					</section>
+					<section>
+						<h2>Lessons Learned</h2>
+						<ul>
+							<li>Decryption XOR Trojan Payload</li>
+							<li>Threaded Search for Elasticsearch</li>
+							<li>"Redirect" original Requests from Fake C&C to Original C&C</li>
+						</ul>
+					</section>
+					<section>
+						<h2>What we are going to do next</h2>
+						<ul>
+							<li>Enterprise Tauglichlichkeit, soweit möglich</li>
+							<li>Key austausch noch lösen -> vielleicht auch bei Fake C&C für Response Entschlüsselung und loggen?</li>
+							<li>Dynamische ACL für Redirect (forward to Upstream Proxy)</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Problems</h2>
+						<ul>
+							<li>cach_peer Squid mit SSL_bump nicht in der Lage weiterer CONNECT zu machen (da gebumpt wird) ->
+								HTTPS Proxy als Upstream Proxy benötigt</li>
+							<li>Testumgebung, wenn wir jetzt einen HTTPS Upstream Proxy
+								brauchen Anpassung von Compass Security Seite möglich? oder eigene Umgebung mit Docker erstellen, um Enterprise Tauglichkeit zu prüfen?
+							</li>
+						</ul>
+					</section>
+				</section>
+				<!-- Sitzung 21. November -->
+
+				<section>
+					<section>
+						<h2>Sitzung 02.12.16</h2>
+						<ul>
+							<li>What we have done</li>
+							<li>Architecture</li>
+							<li>Campaign Config</li>
+							<li>What we are going to do next</li>
+						</ul>
+					</section>
+					<section>
+						<h2>What we have done</h2>
+						<ul>
+							<li>AES Decryption in Filter eingebaut</li>
+							<li>Decrypted und Encrypted Payload in ES</li>
+							<li>Taggen von Decrypted Payload (Campaign/Cipher)</li>
+							<li>Fake C&C um HTTPS erweitert</li>
+							<li>Mandarinfish - Verbesserungen + Refactoring</li>
+							<li>Erste Korrekturlesungen und Verbesserungen</li>
+							<li>Git als Konfigurations Manager</li>
+							<li>Hooks für Decrypt Filter (ES) und Triggerfish</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Architecture</h2>
+						<img src="img/architektur.png"></img>
+					</section>
+					<section>
+						<h2>Campaign Config</h2>
+						<pre><code>
+{
+"name": "C1",
+"fakeccip": "192.168.200.125",
+"http": "8080","https": "8443",
+"prefix" : "payload=",
+"keywords": [
+  "IOGc2controller",
+  "c2networkstreamer",
+  "c2buffertrigger"
+],
+"encryption" : {
+ "xor" : ["QQ=="],
+ "aes" : ["WW"]
+}
+}
+						</code></pre>
+					</section>
+					<section>
+						<h2>What we are going to do next</h2>
+							<ul>
+								<li>Triggerfish Umbau (Ports)</li>
+								<li>Umbau Fake C&C (Finalisieren)</li>
+								<li>Bis Fish Tank Suite Doku abschliessen</li>
+								<li>Code polishing und refactorings</li>
+								<li>Konfigurationsfile finalisieren</li>
+								<li>UINT Umwandlung, falls genügend Zeit</li>
+								<li>Testing</li>
+							</ul>
+					</section>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'lib/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'lib/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/zoom-js/zoom.js', condition: function() { return !!document.body.classList; } },
+					{ src: '/socket.io/socket.io.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
+					{ src: 'plugin/speakernotes/client.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

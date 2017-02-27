@@ -1,0 +1,61 @@
+\chapter{Einleitung}
+
+Diese Bachelorarbeit ist das Resultat eines Abschlussprojekts für den Bachelor of Science in Computer Science an der \gls{hsr}.
+Dieses Projekt wurde in Zusammenarbeit mit \ibuf und Compass Security durchgeführt.
+Compass Security ist ein auf Security Assessments und forensische Untersuchungen spezialisiertes Unternehmen.
+
+Diese Abschlussarbeit wurde durch \ibuf angestossen, um ein mögliches Proof of Concept anhand der Aufgabenstellung zu konzipieren und zu programmieren.
+Dieses Kapitel bietet eine Einleitung in die Aufgabenstellung und den Inhalt dieser Arbeit.
+
+\section{Kontext}
+\label{intro:context}
+Mitte 2016\cite{intro:ruag} wurde über einen Hacker Angriff bei der RUAG berichtet, welcher sowohl die RUAG selbst als auch das \gls{eda} betraf.
+Dieser Angriff war jedoch speziell in der Hinsicht, da er während fast 14 Monaten nicht entdeckt wurde.
+Bei diesem Angriff handelte es sich um einen \gls{apt} Angriff, welcher über sehr lange Zeit lief. Dabei wurde die Malware über ein aus dem Internet heruntergeladenes Spiel in das Firmennetzwerk eingeschleust.
+Dieses Spiel hat dann sporadisch immer wieder einen \gls{cc} Server angefragt, ob nun ein \gls{0day} Bug existiere für den vorhandenen Patchlevel, OS etc., sobald ein 0-Day gefunden wird, kann der \gls{cc} Server seine Befehle an den Client senden.
+Das erste Ziel ist dabei vielmals Administratorrechte auf dem installierten PC zu erlangen und danach unentdeckt Daten weiter zu senden.
+
+
+\section{Problembeschreibung}
+\label{intro:problem}
+Die Arbeit setzt ihren Fokus auf die \gls{cc} Phase einer \gls{apt} Attacke. Voraussetzung dafür ist ein infiziertes System, das bereits einem Reverse Engineering unterzogen wurde. Die Malware und deren Funktionsweise ist somit bekannt. Nun besteht Bedarf, die nächste Phase der \gls{apt} Attacke zu verzögern, um weitere Schritte gegen das Unterfangen des Angreifers zu unternehmen. Diese Arbeit soll sich damit befassen, ein System zu entwickeln, das ein weiteres Kompromittieren der Infrastruktur durch den \gls{cc} Server des Angreifers verhindert oder zumindest verzögert. Das System soll kein Analyse Tool sein, es dient lediglich der Zeitgewinnung.
+
+
+
+\section{Projektziel}
+\label{intro:projektziel}
+Der Kernpunkt der Arbeit besteht darin, aus dem Netzwerkverkehr einer Organisation einen Zugriff auf einen \gls{cc} Server zu erkennen und diesen auf einen Fake \gls{cc} Server umzuleiten. Die Aufgabe kann in folgende Fragen aufgeteilt werden:
+
+\begin{enumerate}
+	\item Wie funktioniert eine \gls{apt} Attacke und welche Schritte beinhaltet sie? - Kapitel \ref{analyse:chapter}, Abschnitt \ref{analyse:cc}
+	\item Welche Möglichkeiten bestehen, um HTTPS Verkehr unterbrechen zu können? - Kapitel \ref{analyse:chapter}, Abschnitt \ref{analyse:ssl}
+	\item Wie kann ein einzelner Netzwerkstrom, separiert von allen anderen, auf einen beliebigen Endpunkt dynamisch umgeleitet werden? - Kapitel \ref{analyse:chapter}, Abschnitt \ref{analyse:redirect}
+	\item Wie kann der HTTP/HTTPS Verkehr mitsamt Payload sauber geloggt werden? - Kapitel \ref{analyse:chapter}, Abschnitt \ref{analyse:logging}
+	\item Wie kann der HTTP/HTTPS Verkehr für die Analyse gespeichert werden? - Kapitel \ref{analyse:chapter}, Abschnitt \ref{analyse:database}
+	\item Wie kann die Malware anhand der gespeicherten Netzwerkpakete erkannt werden? - Kapitel \ref{analyse:chapter}, Abschnitt \ref{analyse:detection}
+	\item Wie können die Angreifer und die Malware getäuscht werden? - Kapitel \ref{analyse:chapter}, Abschnitt \ref{analyse:fakecc}
+	\item Wie würde eine Systemarchitektur einer Software aussehen, die die Problemstellung des Auftrags erfüllt? - Kapitel \ref{arch:chapter}
+	\item Ist eine praxistaugliche Software, die die Problemstellung des Auftrags erfüllt, möglich? - Kapitel \ref{poc1:chapter}, \ref{poc2:chapter}, \ref{pocvalid:chapter}
+	\item Wie würde eine Software aussehen, die für den Einsatz in einem realen Szenario geeignet ist? - Kapitel \ref{fts:chapter}
+	\item Was sind die Vor- und Nachteile der erarbeiteten Lösung? - Kapitel \ref{conc:chapter}
+\end{enumerate}
+
+
+\section{Vorgehen}
+\label{intro:vorgehen}
+
+\begin{comment}
+	Die Arbeit ist grob in zwei Teile unterteilt. Beim ersten Teil, dem Proof of Concept, wird analysiert, wie die Aufgabe theoretisch und praktisch gelöst werden kann. Zu Beweis- und Demonstrationszwecken wurden Prototypen entwickelt. Beim zweiten Teil handelt es sich grundsätzlich um ein Software Engineering Projekt (Fish Tank Suite). In diesem Teil wird die ausgearbeitete Theorie aus dem Proof of Concept in ein praktikables System überführt. Das Software Engineering Projekt kann trotzdem Problemlösungen beinhalten, für die eine Analyse notwendig war, da die Prototypen aus dem Proof of Concept nur ein vertikaler Schnitt durch alle Layer der einzelen Systeme sind.
+\end{comment}
+\textbf{Analyse} \\
+Die Analyse hat sich über das ganze Projekt gezogen und wurde stetig erweitert, sie befindet sich im Kapitel \ref{analyse:chapter} \\
+\textbf{Architektur} \\
+Anhand der Analyse wurden mögliche Architekturen gefunden und beschrieben, sie befinden sich im Kapitel \ref{arch:chapter}.\\
+\textbf{Design und Implementation Proof of Concept} \\
+Anhand der gefundenen Architekturen wurden Prototypen erstellt, welche die möglichen Ansätze aufzeigen \\
+\textbf{Proof of Concept validieren} \\
+Das Proof of Concept wurde validiert, die Ergebnisse dazu befinden sich im Kapitel \ref{pocvalid:chapter}.\\
+\textbf{Fish Tank Suite} \\
+Aus den Prototypen entstand die Fish Tank Suite, welche im Kapitel \ref{fts:chapter} beschrieben ist. \\
+\textbf{Schlussfolgerung} \\
+Die Schlussfolgerung zum Projekt und das Resultat befinden sich im Kapitel \ref{conc:chapter}

@@ -1,0 +1,23 @@
+{
+  "name": "c-c-doc",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hsr-ba-hs16-cc/ba-doc.git"
+  },
+  "author": "Silvan Adrian, Fabian Binna",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hsr-ba-hs16-cc/ba-doc/issues"
+  },
+  "homepage": "https://github.com/hsr-ba-hs16-cc/ba-doc#readme",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-shell": "^0.5.2"
+  }
+}

@@ -1,0 +1,51 @@
+\documentclass[class=scrbook,crop=false]{standalone}
+
+\input{./preamble}
+
+\begin{document}
+
+	\section{Projektsitzung 21. November 2016}
+
+	\begin{tabular}{ll}
+		\textbf{Datum} & 21.11.2016 \\
+		\textbf{Zeit} & 11:00\textendash12:00 Uhr \\
+		\textbf{Ort} & Raum 1.212a, HSR, Oberseestrasse 10, 8640 Rapperswil-Jona \\
+		\textbf{Anwesende} & \ibuf \\ & \fbif \\ & \sadf
+	\end{tabular}
+
+	\subsection*{Traktanden}
+	\begin{itemize}
+		\item Inhalt der Abgabe festlegen (was noch alles rein?)
+		\item Softwaredokumentation? Anhang? oder als Part, wie jetzt?
+		\item Testumgebung Konfiguration ändern? oder dann doch Docker Umgebung aufbauen? -> Enterprise Tauglichkeit
+		\item Trojaner AES
+		\item Enterprise Tauglichkeit?
+		\item Zentrale DB für Campaigns
+	\end{itemize}
+
+	\subsection*{Was wurde erreicht}
+	\begin{itemize}
+		\Item Erster Trojaner mit Testumgebung getestet
+		\item Triggerfish Campaigns
+		\item Triggerfish Threading
+		\item Pufferfish XOR Decryption
+		\item Pufferfish Threading
+		\item Fake C\&C Server
+		\item Dokumentation auf dem neusten Stand
+	\end{itemize}
+
+	\subsection*{Beschlüsse}
+	\begin{itemize}
+		\item Keine Enterprise Tauglichkeit mehr, SSL Bump Problem (In Doku erwähnen)
+		\item Nächstes Meeting 2.12.16 9:00 Compass Security
+	\end{itemize}
+
+	\subsubsection*{Weiteres Vorgehen}
+	\begin{itemize}
+		\item Git Repository, Campaign verteilen
+		\item AES 128
+		\item Elasticsearch Jobs, Decryption
+		\item Ports für Fake C&C (Um mehrere Fake C&Cs auf gleicher VM zu hosten)
+	\end{itemize}
+
+\end{document}

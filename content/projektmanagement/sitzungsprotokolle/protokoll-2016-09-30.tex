@@ -1,0 +1,45 @@
+\documentclass[class=scrbook,crop=false]{standalone}
+
+\input{./preamble}
+
+\begin{document}
+
+	\section{Projektsitzung 30. September 2016}
+
+	\begin{tabular}{ll}
+		\textbf{Datum} & 30.09.2016 \\
+		\textbf{Zeit} & 9:00\textendash10:00 Uhr \\
+		\textbf{Ort} & Compass Security, Werkstrasse 20, 8645 Jona SG \\
+		\textbf{Anwesende} & \ibuf \\ & \fbif \\ & \sadf
+	\end{tabular}
+
+	\subsection*{Traktanden}
+	\begin{itemize}
+		\item Fake C\&C Varianten
+		\item IP Adressen und oder Domain Namen der C\&C Server bekannt?
+		\item C\&C Server blocken vs. Paket vom Trojaner abfangen
+	\end{itemize}
+
+	\subsection*{Was wurde erreicht}
+	\begin{itemize}
+		\item Anforderungen für Prototyp festgelegt
+		\item Proxyanalyse
+		\item Kleiner Prototyp programmiert
+	\end{itemize}
+
+	\subsection*{Beschlüsse}
+	\begin{itemize}
+		\item Variante 2 nicht möglich (Mix aus beiden Varianten)
+    \item Sitzungen mit Präsentation beginnen (roter Faden für die Sitzungen)
+		\item Aufgabenstellung wird zugestellt
+	\end{itemize}
+
+	\subsubsection*{Weiteres Vorgehen}
+	\begin{itemize}
+    	  \item Sprint 1 fortsetzen
+				\item Variante 1 und 2 zusammenführen
+				\item Bessere Lösung finden als mitmproxy
+				\item Analyse um Requests direkt an Fake C\&C weiter zu senden (reset 3 Way Handshake)
+	\end{itemize}
+
+\end{document}

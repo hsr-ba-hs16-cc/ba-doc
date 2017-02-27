@@ -1,0 +1,29 @@
+\chapter{Schlussfolgerung}
+\label{conc:chapter}
+In diesem Kapitel wird folgende Frage beantwortet: \textit{''Was sind die Vor- und Nachteile der erarbeiteten Lösung?''}.\\
+
+\section{Resultat}
+Die Funktionen der Fish Tank Suite können durch die einzelnen Systemteile am einfachsten erklärt werden.
+
+\subsection{Piranhafish (Configuration Management)}
+Der Piranhafish Manager ermöglicht es, dem Security Engineer der Fish Tank Suite neue Campaigns hinzuzufügen. Über den Piranhafish wird auch neuer Programmcode für die Informationsanreicherung in der Datenbank oder neue Suchstrategien verteilt.
+
+\subsection{Pufferfish (Logging)}
+Der Pufferfish Logger sorgt für eine reibungslose Datenübertragung vom Proxy zur Datenbank. Er wird durch eine RabbitMQ Queue unterstützt, um bei Neustarts oder Lastspitzen das System stabil zu halten.
+
+\subsection{Triggerfish (Search Strategies)}
+Der Triggerfish Agent sucht auf einer Elastcisearch Datenbank nach Malware Aktivitäten. Er unterstützt diverse Suchstrategien. Es kann zum Beispiel nach Schlüsselwörtern im Body der Pakete gesucht werden. Es ist auch möglich nach zeitlichen Abfolgen zu suchen.
+
+\subsection{Mandarinfish (Redirect)}
+Der Mandarinfish Router kann einzelne Zieladressen auf andere Adressen umleiten. Zudem ist es auch möglich, einzelne Ports umzuleiten. Um Missbrauch zu vermeiden, kann durch eine Subnet Whitelist verhindert werden, dass Umleitungen auf Adressen im Internet gemacht werden.
+
+\subsection{Fake \gls{cc} Server}
+Der Fake \gls{cc} Server nimmt die Anfragen der Malware entgegen (Falls umgeleitet) und entscheidet, ob die Anfrage weiter an den Original \gls{cc} Server gesendet wird. Die Antwort des Original \gls{cc} Servers kann so verändert werden, dass die Malware weiterschläft.
+
+\section{Bewertung}
+Die Fish Tank Suite erfüllt alle Anforderungen, die während dem Projekt erhoben wurden. Es ist möglich, eine Malware stillzulegen, ohne dass der Angreifer das sofort bemerkt. Wie schnell der Angreifer dahinterkommt und seine Strategie wechselt, müsste in einem realen Szenario getestet werden. Wenn man aber bedenkt, wie gross die zeitlichen Abstände sind, in denen die Malware Nachrichten an den Original \gls{cc} Server sendet, dann kann man davon ausgehen, dass das Eingreifen in den Angriff einige Monate unbemerkt bleibt. In dieser Zeit muss etwas gegen den Angriff unternommen werden, denn die Fish Tank Suite ist nicht dazu vorgesehen, den Angriff komplett zu unterbinden.\\
+
+Während dem Projekt war oft die Rede von Praxistauglichkeit. Dieses Ziel wurde anfangs berücksichtigt und hat die Architektur stark beeinflusst. Im späteren Verlauf rückte diese Anforderung in den Hintergrund, da sonst andere Anforderungen weniger zur Geltung gekommen wären. Es müssen noch einige Aspekte, wie zum Beispiel Security, beachtet werden, um eine praxistaugliche Software zu erhalten. Trotzdem läuft die Software relativ stabil und erfüllt ihre Aufgabe zuverlässig.
+
+\section{Ausblick}
+Wenn die übrigen Punkte (Praxistauglichkeit) noch erfüllt werden und ein Test in einem echten Szenario stattfindet, dann ist die Fish Tank Suite eine gute Lösung für die Problemstellung. Die Software könnte als Open Source Software weiterentwickelt werden. Es könnte noch ein öffentliches Repository für Suchstrategien eingerichtet werden, so dass jeder seine Suchstrategien teilen kann. Damit die Software vollständig durch Kampagnen konfiguriert werden kann, muss die Konfigurationsdatei mit weiteren Informationen versehen werden, damit auch der Fake \gls{cc} Server automatisch erstellt wird. Wenn diese Punkte erfüllt sind, dann ist die Fish Tank Suite eine Lösung, die man in Erwägung ziehen sollte.

@@ -1,0 +1,53 @@
+\documentclass{scrbook}
+
+\usepackage{style}
+\usepackage{datetime}
+\usepackage{hyperref}
+
+\input{./macros}
+\input{./content/glossary-acronyms}
+\addbibresource{./bibliography/bibliography.bib}
+
+\begin{document}
+    \frontmatter
+          \import{content/}{titlepage.tex}
+          \clearpage
+          %Einführung
+          \import{content/}{abstract.tex}
+		  \import{content/}{management-summary.tex}
+		  \import{content/}{aufgabenstellung.tex}
+
+    %Inhaltsverzeichnis
+    \phantomsection % Use Phantom Section for right linking with href
+    \addcontentsline{toc}{chapter}{\contentsname}
+    \tableofcontents
+
+    %Abbildungsverzeichnis
+    %\phantomsection
+    \addcontentsline{toc}{chapter}{\listfigurename}
+    \listoffigures
+
+    %Tabellenverzeichnis
+    \phantomsection
+    \addcontentsline{toc}{chapter}{\listtablename}
+    \listoftables
+
+	%Quellcodeverzechnis
+	\renewcommand\listoflistingscaption{Auflistungsverzeichnis}
+	\listoflistings
+
+    \mainmatter
+      %Technischer Bericht
+      \import{content/projektdokumentation/}{projektdokumentation.tex}
+      %Bibliography und Glossar
+	  \import{bibliography/}{bibliography.tex}
+      \import{content/appendix/}{glossary.tex}
+      
+    \backmatter
+      \part{Anhang}
+      \import{content/projektmanagement/}{projektmanagement.tex}
+      \import{content/appendix/}{reports.tex}
+      \import{content/appendix/}{protocols.tex}
+      \import{content/appendix/}{declaration.tex}
+
+\end{document}

@@ -1,0 +1,30 @@
+\chapter{Persönliche Berichte}
+
+\section{Fabian Binna}
+Schon bei den ersten Analysen und Programmierversuchen wurde klar, dass diese Arbeit eine Herausforderung wird. Der Auftrag ist sehr schnell erklärt: Finde die Malware und leite deren Netzwerkverkehr um. In der Praxis ist das aber nicht so einfach. Wir mussten verschiedene Lösungsansätze ausprobieren und sind beim ersten Versuch direkt in einer Sackgasse gelandet. Anfangs war es sehr frustrierend, da es schon beim Umleiten der Netzwerkpakete Probleme gab, die nicht so leicht zu lösen waren. Erst nach genaueren Analysen und dem ersten Erfolg, bei dem die Iptables die Machbarkeit bewiesen, nahm das Projekt wieder Fahrt auf.\\
+
+Abgesehen vom zähen Start des Projekts lief praktisch alles nach Plan. Wir hatten sogar Zeit, gegen Ende noch zusätzliche Funktionen einzubauen. Das Team funktionierte gut, da wir schon oft zusammengearbeitet haben. Das Projekt konnte durch die gute Kommunikation und Dokumentation unter Kontrolle gehalten werden. Die Unterstützung durch den Betreuer und die Diskussionen während den Sitzungen haben uns und dem Projekt sehr geholfen. Wir mussten sehr diszipliniert arbeiten, um diesen relativ reibungslosen Projektverlauf hinzukriegen, zudem haben die Erfahrungen aus vorherigen Projekten enorm geholfen.\\
+
+Wir sind zufrieden mit dem Resultat. Die Software (Fish Tank Suite) ist zwar noch in einem frühen Stadium, ist aber trotzdem schon ziemlich stabil. Die Tests haben gezeigt, dass die Software eines Tages durchaus praxistauglich sein kann und vielen Organisationen dabei helfen kann, einen Angriff abzuwehren. Ich denke, dass ein öffentliches Repository, auf dem diverse Kampagnen gespeichert sind, einer der wichtigsten Gedanken ist. Durch dieses Repository können andere Organisationen, die schon Erfahrungen mit einer bestimmten Malware gemacht haben, weiteren Organisationen helfen. Wenn eine Firma jeder Malware der Welt den Kampf ansagt, dann hat diese Firma bereits verloren, aber wenn alle Firmen ihre Erfahrungen solidarisch preisgeben, dann können die Angreifer bekämpft werden.
+
+\section{Silvan Adrian}
+
+Zu Beginn war ich mir noch nicht ganz sicher, ob ein weiteres Proof of Concept der richtige Weg ist für die Bachelorarbeit.
+Schliesslich kann man immer den einfacheren Weg gehen und ein reines Softwareprojekt in Angriff nehmen (Auftrag -> programmieren -> fertig).
+Bei dieser Bachelorarbeit mussten wir noch eine grosse Analyse starten und erstellten so auch 2 Prototypen, von welchen einer leider nicht wirklich funktionierte.
+Der zweite Prototyp erfüllte jedoch all unsere Wünsche und ist später in unser Aquarium a.k.a Fish Tank Suite eingeflossen.
+
+
+Die Fish Tank Suite besteht momentan aus 4 Fischen (Triggerfish,Mandarinfish,Pufferfish,Piranhafish). Was zuerst als Scherz aus der National Salmon Agency (NSA) wirkte, wurde zu einem späteren Zeitpunkt tatsächlich verwendet.
+Ganz zum Vergnügen unsererseits. So mussten wir zuerst einige Fische finden, die auch den Anforderungen der jeweiligen Software Komponente entsprachen. So triggert der Triggerfish den Mandarinfish eine Iptable zu setzten und der Pufferfish, der loggt alles (bläht sich auf).
+So hatten wir während des Projekts eine ganz spassige Nebenbeschäftigung, mit der Namensfindung unserer Software.
+
+Doch wie schon erwähnt funktionierte der Prototyp V1 nicht wie erwartet und andere Probleme traten zwischendurch auch auf.
+Da der Prototyp V1 nicht funktionierte, mussten wir unsere Vorstellung von der Echtzeit Analyse zu Grabe tragen, aber für solche Probleme macht man ja schliesslich eine Analyse, und in unserem Fall hatten wir ja noch ein Ass im Ärmel.
+Die Zeitversetzte Analyse war dann der Durchbruch, und diesen haben wir im Grundsatz auch bis zum Schluss der Arbeit verwendet.
+
+Als wird dann die erste Malware zum Testen bekamen und es funktionierte mit unserer Lösung, diese umzuleiten, waren die Glücksgefühle nicht mehr aufzuhalten. Der einzige Nachteil, der sich ergab, war, dass der Original C\&C Server Unsigned Ints verwendete wodurch wir nicht in der Lage waren, den Payload ''perfekt'' zu entschlüsseln.
+
+
+Ich hoffe jetzt sehr, dass die Fish Tank Suite noch weiter entwickelt wird, denn Verbesserungen sind noch an allen Ecken möglich.
+Vielleicht wird ja auch mal ein Open Source Projekt daraus, also mal schauen was die Zukunft noch im Sinn hat mit der Fish Tank Suite.
